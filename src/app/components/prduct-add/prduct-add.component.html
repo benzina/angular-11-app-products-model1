@@ -1,0 +1,36 @@
+<div class="container" *ngIf="productFormGroup">
+  {{productFormGroup.value|json}}
+  <form *ngIf="productFormGroup" [formGroup]="productFormGroup">
+    <div class="mb-3 mt-3">
+      <label  class="form-label">Name:</label>
+      <input type="text" class="form-control" placeholder="Enter your name"  formControlName="name"
+      [ngClass]="{'is-invalid':submitted && productFormGroup.controls.name.errors}">
+      <div *ngIf="submitted && productFormGroup.controls.name.errors" class="invalid-feedback">
+        <div *ngIf="productFormGroup.controls.name.errors.required">Name is required</div>
+      </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label class="form-label">Price:</label>
+      <input type="text" class="form-control" placeholder="Enter product price" formControlName="price">
+    </div>
+    <div class="mb-3 mt-3">
+      <label class="form-label">Quantite:</label>
+      <input type="text" class="form-control" placeholder="Enter product quantite" formControlName="quantity">
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" formControlName="available" >
+      <label class="form-check-label" >
+        Available
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value=""  formControlName="selected" >
+      <label class="form-check-label" >
+        Selected
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSaveProduct()">Save</button>
+  </form>
+</div>

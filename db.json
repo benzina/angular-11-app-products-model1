@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "computer",
+      "price": 21000,
+      "quantity": 89,
+      "available": true,
+      "selected": true
+    },
+    {
+      "id": 3,
+      "name": "souris",
+      "price": 100,
+      "quantity": 60,
+      "available": true,
+      "selected": false
+    },
+    {
+      "id": 4,
+      "name": "toshiba pc",
+      "price": "7788",
+      "quantity": "7",
+      "selected": false,
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "smart cheikh",
+      "price": "877",
+      "quantity": "30",
+      "selected": false,
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "scaner",
+      "price": "323",
+      "quantity": "21",
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "produit",
+      "price": 0,
+      "quantite": 0,
+      "selected": true,
+      "available": true,
+      "id": 7
+    }
+  ]
+}
