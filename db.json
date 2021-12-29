@@ -26,7 +26,7 @@
     },
     {
       "id": 5,
-      "name": "smart cheikh",
+      "name": "PC Bureau",
       "price": "877",
       "quantity": "30",
       "selected": false,
@@ -39,14 +39,6 @@
       "quantity": "21",
       "selected": true,
       "available": true
-    },
-    {
-      "name": "produit",
-      "price": 0,
-      "quantite": 0,
-      "selected": true,
-      "available": true,
-      "id": 7
     }
   ]
 }
