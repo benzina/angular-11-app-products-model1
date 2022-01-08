@@ -3,8 +3,9 @@ import {ProductsService} from "../../services/products.service";
 import {Product} from "../../models/product.model";
 import {Observable, of} from "rxjs";
 import {catchError, map, startWith} from "rxjs/operators";
-import {AppDataState, DataStateEnum, ProductsActionsTypes} from "../../state/product.state";
+import {ActionEvent, AppDataState, DataStateEnum, ProductsActionsTypes} from "../../state/product.state";
 import {Router} from "@angular/router";
+import {EventDriverService} from "../../state/event.driver.service";
 
 @Component({
   selector: 'app-products',
@@ -15,11 +16,16 @@ export class ProductsComponent implements OnInit {
    products$: Observable<AppDataState<Product[]>> |null=null;
    readonly DataStateEnum=DataStateEnum;
 
-  constructor(private productService:ProductsService,private router:Router) { }
+  constructor(private productService:ProductsService,
+              private router:Router,
+              private eventDrivenService:EventDriverService
+  ) { }
 
   ngOnInit(): void {
+    this.eventDrivenService.sourceEventSubjectObservable.subscribe((actionEvent:ActionEvent)=>{
+      this.onActionEvent(actionEvent);
+    });
   }
-
 
   onGetAllProducts() {
     this.products$= this.productService.getAllProducts().pipe(
@@ -70,7 +76,6 @@ export class ProductsComponent implements OnInit {
       .subscribe(data=>{
         product.selected = data.selected;
       })
-
   }
 
   onDelete(p: Product) {
@@ -87,9 +92,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onEdit(p: Product) {
-    this.router.navigateByUrl("/editProduct/"+p.id);
+     this.router.navigateByUrl("/editProduct/"+p.id);
   }
-
 
   onActionEvent($event: any) {
     switch ($event.type) {

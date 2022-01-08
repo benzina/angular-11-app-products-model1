@@ -15,13 +15,13 @@ export class PrductAddComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private productService:ProductsService) { }
 
   ngOnInit(): void {
-    this.productFormGroup=this.formBuilder.group({
-      name:["",Validators.required],
-      price:[0,Validators.required],
-      quantity:[0,Validators.required],
-      selected:[true,Validators.required],
-      available:[true,Validators.required],
-    });
+      this.productFormGroup=this.formBuilder.group({
+        name:["",Validators.required],
+        price:[0,Validators.required],
+        quantity:[0,Validators.required],
+        selected:[true,Validators.required],
+        available:[true,Validators.required],
+      });
   }
 
   onSaveProduct() {
@@ -32,6 +32,5 @@ export class PrductAddComponent implements OnInit {
       .subscribe(data=>{
         alert("success product save");
       });
-
   }
 }
